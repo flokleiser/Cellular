@@ -1,0 +1,299 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		000000000000000000000200 /* CellExplorerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000100 /* CellExplorerApp.swift */; };
+		000000000000000000000201 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000101 /* AppModel.swift */; };
+		000000000000000000000202 /* Organelle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000102 /* Organelle.swift */; };
+		000000000000000000000203 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000103 /* LaunchView.swift */; };
+		000000000000000000000204 /* CellScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000104 /* CellScene.swift */; };
+		000000000000000000000205 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000105 /* ImmersiveView.swift */; };
+		000000000000000000000206 /* InfoPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000106 /* InfoPanel.swift */; };
+		000000000000000000000210 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 000000000000000000000701 /* RealityKitContent */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		000000000000000000000100 /* CellExplorerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellExplorerApp.swift; sourceTree = "<group>"; };
+		000000000000000000000101 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		000000000000000000000102 /* Organelle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organelle.swift; sourceTree = "<group>"; };
+		000000000000000000000103 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		000000000000000000000104 /* CellScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellScene.swift; sourceTree = "<group>"; };
+		000000000000000000000105 /* ImmersiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmersiveView.swift; sourceTree = "<group>"; };
+		000000000000000000000106 /* InfoPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPanel.swift; sourceTree = "<group>"; };
+		000000000000000000000150 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		000000000000000000000160 /* CellExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CellExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		000000000000000000000170 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = RealityKitContent; path = Packages/RealityKitContent; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		000000000000000000000501 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000000000000000000000210 /* RealityKitContent in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		000000000000000000000300 = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000301 /* CellExplorer */,
+				000000000000000000000303 /* Packages */,
+				000000000000000000000302 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		000000000000000000000301 /* CellExplorer */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000100 /* CellExplorerApp.swift */,
+				000000000000000000000101 /* AppModel.swift */,
+				000000000000000000000102 /* Organelle.swift */,
+				000000000000000000000103 /* LaunchView.swift */,
+				000000000000000000000104 /* CellScene.swift */,
+				000000000000000000000105 /* ImmersiveView.swift */,
+				000000000000000000000106 /* InfoPanel.swift */,
+				000000000000000000000150 /* Info.plist */,
+			);
+			path = CellExplorer;
+			sourceTree = "<group>";
+		};
+		000000000000000000000302 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000160 /* CellExplorer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		000000000000000000000303 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000170 /* RealityKitContent */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		000000000000000000000400 /* CellExplorer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000601 /* Build configuration list for PBXNativeTarget "CellExplorer" */;
+			buildPhases = (
+				000000000000000000000500 /* Sources */,
+				000000000000000000000501 /* Frameworks */,
+				000000000000000000000502 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CellExplorer;
+			packageProductDependencies = (
+				000000000000000000000701 /* RealityKitContent */,
+			);
+			productName = CellExplorer;
+			productReference = 000000000000000000000160 /* CellExplorer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		000000000000000000000401 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					000000000000000000000400 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = 000000000000000000000600 /* Build configuration list for PBXProject "CellExplorer" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 000000000000000000000300;
+			packageReferences = (
+				000000000000000000000700 /* XCLocalSwiftPackageReference "Packages/RealityKitContent" */,
+			);
+			productRefGroup = 000000000000000000000302 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				000000000000000000000400 /* CellExplorer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		000000000000000000000502 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		000000000000000000000500 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000000000000000000000200 /* CellExplorerApp.swift in Sources */,
+				000000000000000000000201 /* AppModel.swift in Sources */,
+				000000000000000000000202 /* Organelle.swift in Sources */,
+				000000000000000000000203 /* LaunchView.swift in Sources */,
+				000000000000000000000204 /* CellScene.swift in Sources */,
+				000000000000000000000205 /* ImmersiveView.swift in Sources */,
+				000000000000000000000206 /* InfoPanel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		000000000000000000000610 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				SDKROOT = xros;
+				SWIFT_VERSION = 5.0;
+				XROS_DEPLOYMENT_TARGET = 2.0;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		000000000000000000000611 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				SDKROOT = xros;
+				SWIFT_VERSION = 5.0;
+				XROS_DEPLOYMENT_TARGET = 2.0;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		000000000000000000000612 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CellExplorer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Cell Explorer";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.CellExplorer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 7;
+			};
+			name = Debug;
+		};
+		000000000000000000000613 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CellExplorer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Cell Explorer";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.CellExplorer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 7;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		000000000000000000000600 /* Build configuration list for PBXProject "CellExplorer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000610 /* Debug */,
+				000000000000000000000611 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		000000000000000000000601 /* Build configuration list for PBXNativeTarget "CellExplorer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				000000000000000000000612 /* Debug */,
+				000000000000000000000613 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+/* Begin XCLocalSwiftPackageReference section */
+		000000000000000000000700 /* XCLocalSwiftPackageReference "Packages/RealityKitContent" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/RealityKitContent;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		000000000000000000000701 /* RealityKitContent */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RealityKitContent;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 000000000000000000000401 /* Project object */;
+}
