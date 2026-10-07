@@ -10,5 +10,17 @@
         "isLocked" : false
       }
     ]
+  },
+  "C24B0DA8-0F4A-493C-90A2-996073D6431F" : {
+    "objectMetadataList" : [
+      [
+        "C24B0DA8-0F4A-493C-90A2-996073D6431F",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
   }
 }

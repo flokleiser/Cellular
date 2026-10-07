@@ -1,9 +1,13 @@
 {
   "pathsToIds" : {
-    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Scene.usda" : "A4066F01-BF40-420D-A0AD-3CA17194ECC7"
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Cell.usda" : "C24B0DA8-0F4A-493C-90A2-996073D6431F",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/Scene.usda" : "A4066F01-BF40-420D-A0AD-3CA17194ECC7",
+    "RealityKitContent\/Sources\/RealityKitContent\/RealityKitContent.rkassets\/textures\/Mitochondria.usdc" : "A799F161-5EFA-450A-B148-0EA87F150A94"
   },
   "projectID" : 8552981687499043292,
   "uuidToIntID" : {
-    "A4066F01-BF40-420D-A0AD-3CA17194ECC7" : -2225526266202925683
+    "A4066F01-BF40-420D-A0AD-3CA17194ECC7" : -2225526266202925683,
+    "A799F161-5EFA-450A-B148-0EA87F150A94" : 6970594365096255550,
+    "C24B0DA8-0F4A-493C-90A2-996073D6431F" : -9065144752070440454
   }
 }

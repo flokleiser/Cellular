@@ -1,0 +1,53 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (494.60.2)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def "Mitochondria" (
+        active = true
+        prepend references = @Mitochondria.usdc@
+    )
+    {
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0.06293946, -1.1920929e-7, 0.8890588)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "_materials"
+        {
+            over "Material_008"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+
+                over "Principled_BSDF"
+                {
+                    float inputs:opacity = 0.4395703
+                }
+            }
+
+            over "Material_007"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+            }
+        }
+    }
+
+    def "Nucleus" (
+        active = true
+        prepend references = @Nucleus.usdc@
+    )
+    {
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-2.9461923, 0, 16.542175)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+}
+
