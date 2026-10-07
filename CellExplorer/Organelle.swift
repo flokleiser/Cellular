@@ -36,7 +36,7 @@ extension Organelle {
             color: .systemGreen,
             size: 0.02,
             homePosition: [0.11, 0.04, 0.08],
-            modelName: nil
+            modelName: "Ribosomes"
         ),
         Organelle(
             id: "rough-er",
@@ -44,9 +44,9 @@ extension Organelle {
             explanation:
                 "The new protein enters the rough endoplasmic reticulum, where it is folded, checked for errors and given first modifications. It then leaves in a transport vesicle toward the Golgi.",
             color: .systemOrange,
-            size: 0.05,
-            homePosition: [-0.1, 0, 0.08],
-            modelName: nil
+            size: 0.20,
+            homePosition: [0, 0.02, 0],
+            modelName: "ER"
         ),
         Organelle(
             id: "golgi",
@@ -56,20 +56,20 @@ extension Organelle {
             color: .systemYellow,
             size: 0.05,
             homePosition: [-0.05, -0.08, -0.08],
-            modelName: nil
+            modelName: "Golgi"
         ),
 
-        //this is missing
-        Organelle(
-            id: "vesicle",
-            name: "Secretory Vesicle",
-            explanation:
-                "Vesicles bud off the Golgi carrying the finished proteins to the cell membrane, where they fuse and release their cargo outside the cell or deliver it to the membrane.",
-            color: .systemPink,
-            size: 0.03,
-            homePosition: [0.1, -0.04, -0.1],
-            modelName: nil
-        ),
+        //this is missing (but part of the golgi)
+//        Organelle(
+//            id: "vesicle",
+//            name: "Secretory Vesicle",
+//            explanation:
+//                "Vesicles bud off the Golgi carrying the finished proteins to the cell membrane, where they fuse and release their cargo outside the cell or deliver it to the membrane.",
+//            color: .systemPink,
+//            size: 0.03,
+//            homePosition: [0.1, -0.04, -0.1],
+//            modelName: nil
+//        ),
         Organelle(
             id: "mitochondrion",
             name: "Mitochondrion",

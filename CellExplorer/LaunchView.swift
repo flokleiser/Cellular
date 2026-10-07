@@ -4,6 +4,7 @@ struct LaunchView: View {
     @Environment(AppModel.self) private var model
     @Environment(\.openImmersiveSpace) private var openImmersiveSpace
     @Environment(\.dismissImmersiveSpace) private var dismissImmersiveSpace
+    @Environment(\.dismissWindow) private var dismissWindow
 
     var body: some View {
         VStack(spacing: 24) {
@@ -27,7 +28,7 @@ struct LaunchView: View {
             model.immersiveSpaceState = .inTransition
             switch await openImmersiveSpace(id: model.immersiveSpaceID) {
             case .opened:
-                break
+                dismissWindow()
             default:
                 model.immersiveSpaceState = .closed
             }

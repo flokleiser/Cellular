@@ -18,24 +18,24 @@ struct InfoPanel: View {
             }
             HStack(spacing: 12) {
                 Button {
-                    onResize(-0.1)
+                    onResize(-model.cellResizeStep)
                 } label: {
                     Image(systemName: "minus")
                 }
                 .accessibilityLabel("Decrease cell size")
                 .disabled(model.cellScale <= AppModel.minimumCellScale)
 
-                Text("Cell size \(Int((model.cellScale * 100).rounded()))%")
+                Text("Cell diameter \(Int((model.cellDiameter * 100).rounded())) cm")
                     .font(.subheadline)
                     .monospacedDigit()
 
                 Button {
-                    onResize(0.1)
+                    onResize(model.cellResizeStep)
                 } label: {
                     Image(systemName: "plus")
                 }
                 .accessibilityLabel("Increase cell size")
-                .disabled(model.cellScale >= AppModel.maximumCellScale)
+                .disabled(model.cellScale >= model.maximumAllowedCellScale)
             }
             .buttonStyle(.bordered)
             if model.phase != .intact {

@@ -1,6 +1,46 @@
 {
+  "8A783D43-33E7-4927-A471-95014B071502" : {
+    "objectMetadataList" : [
+      [
+        "8A783D43-33E7-4927-A471-95014B071502",
+        "root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "8A783D43-33E7-4927-A471-95014B071502",
+        "root",
+        "_materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "8A783D43-33E7-4927-A471-95014B071502",
+        "root",
+        "Icosphere_048"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "A4066F01-BF40-420D-A0AD-3CA17194ECC7" : {
     "objectMetadataList" : [
+      [
+        "A4066F01-BF40-420D-A0AD-3CA17194ECC7",
+        "Root",
+        "Cell",
+        "_materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
       [
         "A4066F01-BF40-420D-A0AD-3CA17194ECC7",
         "Root"

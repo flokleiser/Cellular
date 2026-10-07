@@ -13,6 +13,7 @@ final class CellScene {
     private let model: AppModel
     private let cellContents = Entity()
     private var membrane = Entity()
+    private var infoPanel: Entity?
     private var organelleEntities: [String: Entity] = [:]
 
     init(model: AppModel) {
@@ -40,17 +41,26 @@ final class CellScene {
     func resizeCell(by amount: Float) {
         model.cellScale = min(
             max(model.cellScale + amount, AppModel.minimumCellScale),
-            AppModel.maximumCellScale
+            model.maximumAllowedCellScale
         )
         cellContents.scale = SIMD3(repeating: model.cellScale)
+    }
+
+    func attachInfoPanel(_ panel: Entity) {
+        infoPanel = panel
+        root.addChild(panel)
+        positionInfoPanelBesideCell()
     }
 
     func reset() {
         model.phase = .intact
         model.placedCount = 0
+        model.cellScale = 1.0
+        cellContents.scale = SIMD3(repeating: model.cellScale)
         model.infoTitle = "Cell Explorer"
         model.infoBody = "Look at the cell and tap it to open it up."
         model.hint = ""
+        positionInfoPanelBesideCell()
 
         membrane.components.set(InputTargetComponent())
 
@@ -79,6 +89,7 @@ final class CellScene {
 
         model.infoTitle = "The cell is open"
         model.infoBody = "These organelles work together to make and ship proteins. Drag them back into the cell in the order the protein passes through them."
+        positionInfoPanelBesideCell()
         activateNext()
     }
 
@@ -101,6 +112,7 @@ final class CellScene {
         model.placedCount += 1
         model.infoTitle = organelle.name
         model.infoBody = organelle.explanation
+        positionInfoPanel(nextTo: organelle.homePosition * model.cellScale)
 
         if model.nextOrganelle == nil {
             model.phase = .completed
@@ -121,6 +133,14 @@ final class CellScene {
         return nil
     }
 
+    func showInfo(for entity: Entity) {
+        guard let component = entity.components[OrganelleComponent.self],
+              let organelle = model.organelles.first(where: { $0.id == component.id }) else { return }
+        model.infoTitle = organelle.name
+        model.infoBody = organelle.explanation
+        positionInfoPanel(nextTo: entity)
+    }
+
     private func activateNext() {
         guard let next = model.nextOrganelle,
               let entity = organelleEntities[next.id] else { return }
@@ -128,12 +148,26 @@ final class CellScene {
         model.hint = "Next: drag the \(next.name) into the cell."
     }
 
+    private func positionInfoPanelBesideCell() {
+        infoPanel?.position = [0.7, 0, 0]
+    }
+
+    private func positionInfoPanel(nextTo entity: Entity) {
+        let position = entity.position(relativeTo: root)
+        positionInfoPanel(nextTo: position)
+    }
+
+    private func positionInfoPanel(nextTo position: SIMD3<Float>) {
+        let horizontalOffset: Float = position.x >= 0 ? -0.55 : 0.55
+        infoPanel?.position = [position.x + horizontalOffset, position.y, position.z]
+    }
+
     private func scatterPosition(_ index: Int) -> SIMD3<Float> {
         let angle = Float(index) / Float(model.organelles.count) * 2 * .pi
         return [
             cos(angle) * Self.scatterRadius,
-            0.15 * sin(angle * 2),
-            sin(angle) * Self.scatterRadius
+            sin(angle) * Self.scatterRadius,
+            0
         ]
     }
 

@@ -14,8 +14,7 @@ struct ImmersiveView: View {
             content.add(cell.root)
 
             if let panel = attachments.entity(for: "info") {
-                panel.position = [0, -0.55, 0.3]
-                cell.root.addChild(panel)
+                cell.attachInfoPanel(panel)
             }
 
             scene = cell
@@ -31,8 +30,12 @@ struct ImmersiveView: View {
         .gesture(
             SpatialTapGesture()
                 .targetedToAnyEntity()
-                .onEnded { _ in
-                    scene?.explode()
+                .onEnded { value in
+                    if let entity = scene?.organelleEntity(containing: value.entity) {
+                        scene?.showInfo(for: entity)
+                    } else {
+                        scene?.explode()
+                    }
                 }
         )
         .gesture(
@@ -46,6 +49,7 @@ struct ImmersiveView: View {
                         dragOffset = entity.position - location
                     }
                     entity.position = location + (dragOffset ?? .zero)
+                    scene?.showInfo(for: entity)
                 }
                 .onEnded { value in
                     dragOffset = nil

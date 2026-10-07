@@ -23,8 +23,22 @@ final class AppModel {
     var placedCount = 0
     var cellScale: Float = 1.0
 
+    static let baseCellDiameter: Float = 0.5
     static let minimumCellScale: Float = 0.5
     static let maximumCellScale: Float = 2.0
+    static let maximumCompletedCellScale: Float = 20.0
+
+    var maximumAllowedCellScale: Float {
+        phase == .completed ? Self.maximumCompletedCellScale : Self.maximumCellScale
+    }
+
+    var cellResizeStep: Float {
+        phase == .completed ? 1.0 : 0.1
+    }
+
+    var cellDiameter: Float {
+        Self.baseCellDiameter * cellScale
+    }
 
     var infoTitle = ""
     var infoBody = ""
