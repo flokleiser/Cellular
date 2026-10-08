@@ -42,18 +42,29 @@ struct ImmersiveView: View {
             DragGesture()
                 .targetedToAnyEntity()
                 .onChanged { value in
-                    guard let entity = scene?.organelleEntity(containing: value.entity),
-                          let parent = entity.parent else { return }
-                    let location = value.convert(value.location3D, from: .local, to: parent)
-                    if dragOffset == nil {
-                        dragOffset = entity.position - location
+                    guard let scene else { return }
+                    if let entity = scene.organelleEntity(containing: value.entity) {
+                        guard model.phase == .exploded, let parent = entity.parent else { return }
+                        let location = value.convert(value.location3D, from: .local, to: parent)
+                        if dragOffset == nil {
+                            dragOffset = entity.position - location
+                        }
+                        entity.position = location + (dragOffset ?? .zero)
+                        scene.showInfo(for: entity)
+                    } else if model.phase == .completed,
+                              scene.isCellSurface(containing: value.entity),
+                              let parent = scene.root.parent {
+                        let location = value.convert(value.location3D, from: .local, to: parent)
+                        if dragOffset == nil {
+                            dragOffset = scene.root.position - location
+                        }
+                        scene.root.position = location + (dragOffset ?? .zero)
                     }
-                    entity.position = location + (dragOffset ?? .zero)
-                    scene?.showInfo(for: entity)
                 }
                 .onEnded { value in
                     dragOffset = nil
-                    guard let entity = scene?.organelleEntity(containing: value.entity) else { return }
+                    guard model.phase == .exploded,
+                          let entity = scene?.organelleEntity(containing: value.entity) else { return }
                     scene?.drop(entity)
                 }
         )

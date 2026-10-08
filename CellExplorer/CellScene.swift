@@ -79,6 +79,7 @@ final class CellScene {
 
         for (index, organelle) in model.organelles.enumerated() {
             guard let entity = organelleEntities[organelle.id] else { continue }
+            entity.components.set([InputTargetComponent(), HoverEffectComponent()])
             entity.move(
                 to: Transform(translation: scatterPosition(index)),
                 relativeTo: root,
@@ -94,11 +95,14 @@ final class CellScene {
     }
 
     func drop(_ entity: Entity) {
-        guard model.phase == .exploded,
-              let component = entity.components[OrganelleComponent.self],
+        guard let component = entity.components[OrganelleComponent.self],
               let organelle = model.nextOrganelle,
               organelle.id == component.id,
-              length(entity.position) < Self.cellRadius else { return }
+              length(entity.position) < Self.cellRadius else {
+            returnToScatterPosition(entity)
+            return
+        }
+        guard model.phase == .exploded else { return }
 
         entity.components.remove(InputTargetComponent.self)
         entity.components.remove(HoverEffectComponent.self)
@@ -117,6 +121,7 @@ final class CellScene {
         if model.nextOrganelle == nil {
             model.phase = .completed
             model.hint = "Pathway complete. The cell can now make and ship proteins."
+            membrane.components.set([InputTargetComponent(), HoverEffectComponent()])
         } else {
             activateNext()
         }
@@ -133,6 +138,17 @@ final class CellScene {
         return nil
     }
 
+    func isCellSurface(containing entity: Entity) -> Bool {
+        var current: Entity? = entity
+        while let candidate = current {
+            if candidate === membrane {
+                return true
+            }
+            current = candidate.parent
+        }
+        return false
+    }
+
     func showInfo(for entity: Entity) {
         guard let component = entity.components[OrganelleComponent.self],
               let organelle = model.organelles.first(where: { $0.id == component.id }) else { return }
@@ -143,9 +159,20 @@ final class CellScene {
 
     private func activateNext() {
         guard let next = model.nextOrganelle,
-              let entity = organelleEntities[next.id] else { return }
-        entity.components.set([InputTargetComponent(), HoverEffectComponent()])
+              organelleEntities[next.id] != nil else { return }
         model.hint = "Next: drag the \(next.name) into the cell."
+    }
+
+    private func returnToScatterPosition(_ entity: Entity) {
+        guard model.phase == .exploded,
+              let component = entity.components[OrganelleComponent.self],
+              let index = model.organelles.firstIndex(where: { $0.id == component.id }) else { return }
+        entity.move(
+            to: Transform(translation: scatterPosition(index)),
+            relativeTo: root,
+            duration: 0.3,
+            timingFunction: .easeOut
+        )
     }
 
     private func positionInfoPanelBesideCell() {

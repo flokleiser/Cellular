@@ -8,7 +8,7 @@ struct LaunchView: View {
 
     var body: some View {
         VStack(spacing: 24) {
-            Text("Cell Explorer")
+            Text("Cell Explorer Test")
                 .font(.extraLargeTitle)
             Text("Explore how a cell makes and ships proteins.")
             Button(model.immersiveSpaceState == .open ? "Leave" : "Enter") {
